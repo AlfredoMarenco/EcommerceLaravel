@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0755f7f67c503f3f6a113805c7071963",
+    "content-hash": "01955d2bb4573294cc6fcd08233aeb05",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2240,57 +2240,6 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.10.2"
             },
             "time": "2020-09-26T10:30:38+00:00"
-        },
-        {
-            "name": "openpay/sdk",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/open-pay/openpay-php.git",
-                "reference": "a58239d729fc1a2339a1526a7761245c7459c24a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/open-pay/openpay-php/zipball/a58239d729fc1a2339a1526a7761245c7459c24a",
-                "reference": "a58239d729fc1a2339a1526a7761245c7459c24a",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-hash": "*",
-                "php": ">=5.2.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Openpay": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Openpay",
-                    "email": "soporte@openpay.mx",
-                    "homepage": "http://www.openpay.mx/docs/libraries.html"
-                },
-                {
-                    "name": "Federico Balderas",
-                    "email": "federico.balderas@openpay.mx",
-                    "homepage": "https://openpay.mx"
-                }
-            ],
-            "description": "This is a client implementing the payment services for Openpay at openpay.mx",
-            "support": {
-                "issues": "https://github.com/open-pay/openpay-php/issues",
-                "source": "https://github.com/open-pay/openpay-php/tree/master"
-            },
-            "time": "2020-08-18T16:44:29+00:00"
         },
         {
             "name": "opis/closure",
@@ -8057,5 +8006,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }
