@@ -10,7 +10,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('charge', [OpenpayController::class ,'charge'])->name('card-charge');
+Route::any('charge', [OpenpayController::class ,'charge'])->name('card-charge');
+Route::any('/openpay/webhook', [OpenpayController::class ,'webhook']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
