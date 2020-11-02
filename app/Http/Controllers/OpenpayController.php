@@ -24,7 +24,7 @@ class OpenpayController extends Controller
             'amount' => 100, // formato númerico con hasta dos dígitos decimales. 
             'description' => 'TCBC201012',
             'use_3d_secure' => true,
-            'redirect_url' => 'http://commercelaravel.test/',
+            'redirect_url' => 'http://ecommercelaravel.test/',
             'device_session_id' => $_POST["deviceIdHiddenFieldName"],
             'customer' => $customer
         );
