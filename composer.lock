@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0755f7f67c503f3f6a113805c7071963",
+    "content-hash": "ecea606eabe1745ab968d656898bc664",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -241,6 +241,58 @@
                 "source": "https://github.com/bumbummen99/LaravelShoppingcart/tree/3.0.0"
             },
             "time": "2020-09-23T00:12:49+00:00"
+        },
+        {
+            "name": "conekta/conekta-php",
+            "version": "v4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/conekta/conekta-php.git",
+                "reference": "6122a1a532cc0d8940a334b3f9375152431d0781"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/conekta/conekta-php/zipball/6122a1a532cc0d8940a334b3f9375152431d0781",
+                "reference": "6122a1a532cc0d8940a334b3f9375152431d0781",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~8"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/Conekta/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Conekta  and contributors",
+                    "homepage": "https://github.com/conekta/conekta-php/contributors"
+                }
+            ],
+            "description": "Conekta PHP Library",
+            "homepage": "https://www.conekta.io/",
+            "keywords": [
+                "api",
+                "conekta",
+                "payment processing"
+            ],
+            "support": {
+                "issues": "https://github.com/conekta/conekta-php/issues",
+                "source": "https://github.com/conekta/conekta-php/tree/v4.3.0"
+            },
+            "time": "2020-09-23T20:21:49+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -8053,5 +8105,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

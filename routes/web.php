@@ -1,17 +1,23 @@
 <?php
 
+use App\Http\Controllers\ConektaController;
 use App\Http\Controllers\OpenpayController;
+use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
-
+use Monolog\Handler\SlackWebhookHandler;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('charge', [OpenpayController::class ,'charge'])->name('card-charge');
-Route::any('/openpay/webhook', [OpenpayController::class ,'webhook']);
+Route::any('openpay/charge', [OpenpayController::class ,'charge'])->name('card-charge');
+Route::any('conekta/charge', [ConektaController::class ,'charge']);
+Route::any('/openpay/webhook', [WebhookController::class ,'webhook']);
+Route::any('/openpay/getwebhook', [WebhookController::class ,'getwebhook']);
+Route::any('/conekta/webhook', [WebhookController::class ,'webhook']);
+Route::any('/conekta/webhook', [SlackWebhookHandler::class ,'webhook']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

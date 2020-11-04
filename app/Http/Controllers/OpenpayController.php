@@ -21,7 +21,7 @@ class OpenpayController extends Controller
         $chargeData = array(
             'method' => 'card',
             'source_id' => $_POST["token_id"],
-            'amount' => 100, // formato númerico con hasta dos dígitos decimales. 
+            'amount' => 15000, // formato númerico con hasta dos dígitos decimales. 
             'description' => 'TCBC201012',
             'use_3d_secure' => true,
             'redirect_url' => 'http://ecommercelaravel.test/',
@@ -34,19 +34,5 @@ class OpenpayController extends Controller
         return redirect()->away($url3Dsecure);
     }
 
-    public function webhook()
-    {
-        $openpay = Openpay::getInstance('m4gx48zqyw8xs4en1z1u', 'sk_d70ffc17846544e39488869d11fac3dc');
-        $webhook = array(
-            'url' => 'https://commercelaravel.com/openpay/webhook',
-            'event_types' => array(
-                'charge.refunded',
-                'charge.failed',
-                'charge.cancelled',
-                'charge.created',
-                'chargeback.accepted'
-            )
-        );
-        $webhook = $openpay->webhooks->add($webhook);
-    }
+    
 }
