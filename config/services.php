@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID', '53e7cdf57f6c0999263a'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET','4f1f866151d1e99dbd412943e55115fe7cc29459'),
+        'redirect' => 'http://ecommercelaravel.test/login/github/callback',
+    ],
 
 ];

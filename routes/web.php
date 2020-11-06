@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ConektaController;
 use App\Http\Controllers\OpenpayController;
+use App\Http\Controllers\SocialLiteController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -12,12 +14,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login/github', [SocialLiteController::class, 'redirectToProvider'])->name('login.github');
+Route::get('login/github/callback', [SocialLiteController::class, 'handleProviderCallback']);
+
 Route::any('openpay/charge', [OpenpayController::class ,'charge'])->name('card-charge');
 Route::any('conekta/charge', [ConektaController::class ,'charge']);
 Route::any('/openpay/webhook', [WebhookController::class ,'webhook']);
 Route::any('/openpay/getwebhook', [WebhookController::class ,'getwebhook']);
 Route::any('/conekta/webhook', [WebhookController::class ,'webhook']);
 Route::any('/conekta/webhook', [SlackWebhookHandler::class ,'webhook']);
+Route::any('/stripe/webhook', [StripeController::class ,'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

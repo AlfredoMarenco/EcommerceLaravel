@@ -28,9 +28,8 @@ class WebhookController extends Controller
     }
 
     public function getWebHook(){
-        $openpay = Openpay::getInstance('m4gx48zqyw8xs4en1z1u', 'sk_d70ffc17846544e39488869d11fac3dc');
-        $webhook = $openpay->webhooks->get('wq1aahugwn4ewzbgsosd');
-
-        return json_encode($webhook->status);
+        $response = Http::post('https://webhook.site/a6be9f60-369f-435f-b6c6-ba39735da9f7');
+        $response->getBody();
+        return json_decode($response);
     }
 }
