@@ -24,15 +24,29 @@ class OpenpayController extends Controller
             'amount' => 15000, // formato númerico con hasta dos dígitos decimales. 
             'description' => 'TCBC201012',
             'use_3d_secure' => true,
-            'redirect_url' => 'http://ecommercelaravel.test/',
+            'redirect_url' => 'http://ecommercelaravel.test/openpay/getTransaction',
             'device_session_id' => $_POST["deviceIdHiddenFieldName"],
             'customer' => $customer
         );
 
         $charge = $openpay->charges->create($chargeData);
-        $url3Dsecure=$charge->payment_method->url;
+        $url3Dsecure = $charge->payment_method->url;
         return redirect()->away($url3Dsecure);
     }
 
-    
+
+    public function getTransaction()
+    {
+        $id = $_GET['id'];
+        $openpay = Openpay::getInstance('m4gx48zqyw8xs4en1z1u', 'sk_d70ffc17846544e39488869d11fac3dc', 'MX');
+        $charge = $openpay->charges->get($id);
+        $charge->status;
+
+        if($charge->status === 'completed'){
+            return "Orden completada";
+        }else{
+            return "Orden no Completada";
+        }
+        
+    }
 }

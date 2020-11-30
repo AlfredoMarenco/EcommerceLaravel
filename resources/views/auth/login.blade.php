@@ -41,10 +41,6 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login.github') }}">
-                    {{ __('Login whit Github') }}
-                </a>
-
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
                 </x-jet-button>
@@ -53,7 +49,7 @@
                 <h4>Iniciar sesion con red social</h4>
             </div>
             <div class="flex items-center justify-center mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login.github') }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="login/github">
                     {{ __('Login whit Github') }}
                 </a>
             </div>

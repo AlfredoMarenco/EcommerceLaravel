@@ -11,20 +11,34 @@ use Illuminate\Http\Request;
 use Monolog\Handler\SlackWebhookHandler;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('login/github', [SocialLiteController::class, 'redirectToProvider'])->name('login.github');
-Route::get('login/github/callback', [SocialLiteController::class, 'handleProviderCallback']);
+//Rutas Login providers externos
+Route::get('login/{provider}', [SocialLiteController::class, 'redirectToProvider']);
+Route::get('login/{provider}/callback', [SocialLiteController::class, 'handleProviderCallback']);
 
+// Route::get('login/facebook', [SocialLiteController::class, 'redirectToProviderFacebook'])->name('login.facebook');
+// Route::get('login/facebook/callback', [SocialLiteController::class, 'handleProviderCallbackFacebook']);
+
+// Route::get('login/google', [SocialLiteController::class, 'redirectToProviderFacebook'])->name('login.facebook');
+// Route::get('login/google/callback', [SocialLiteController::class, 'handleProviderCallbackFacebook']);
+
+//Rutas Openpay
 Route::any('openpay/charge', [OpenpayController::class ,'charge'])->name('card-charge');
-Route::any('conekta/charge', [ConektaController::class ,'charge']);
-Route::any('/openpay/webhook', [WebhookController::class ,'webhook']);
-Route::any('/openpay/getwebhook', [WebhookController::class ,'getwebhook']);
-Route::any('/conekta/webhook', [WebhookController::class ,'webhook']);
-Route::any('/conekta/webhook', [SlackWebhookHandler::class ,'webhook']);
-Route::any('/stripe/webhook', [StripeController::class ,'index']);
+Route::get('openpay/getTransaction/', [OpenpayController::class,'getTransaction']);
+Route::any('openpay/webhook', [WebhookController::class ,'webhook']);
+Route::any('openpay/getwebhook', [WebhookController::class ,'getwebhook']);
 
+//Rutas Procesador de pagos Conekta
+Route::any('conekta/charge', [ConektaController::class ,'charge']);
+Route::any('conekta/webhook', [WebhookController::class ,'webhook']);
+Route::any('conekta/webhook', [SlackWebhookHandler::class ,'webhook']);
+
+//Rutas Procesador de pago Stripe
+Route::any('stripe/webhook', [StripeController::class ,'index']);
+
+// Rutas de Jestream
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');

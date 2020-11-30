@@ -30,9 +30,19 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID', '53e7cdf57f6c0999263a'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET','4f1f866151d1e99dbd412943e55115fe7cc29459'),
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => 'http://ecommercelaravel.test/login/github/callback',
     ],
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT','https://ecommercelaravel.test/login/google/callback'),
+    ],
+    'facebook' => [    
+        'client_id' => env('FACEBOOK_CLIENT_ID'),  
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),  
+        'redirect' => env('FACEBOOK_REDIRECT_URI','https://ecommercelaravel.test/login/facebook/callback') 
+      ],
 
 ];
